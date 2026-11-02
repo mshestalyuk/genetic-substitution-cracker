@@ -36,8 +36,22 @@ class _CaesarStrategy(_CipherStrategy):
         return _substitute(text, shifted, ascii_lowercase)
 
 
+class _MonoalphabeticStrategy(_CipherStrategy):
+    def __init__(self) -> None:
+        shuffled = list(ascii_lowercase)
+        random.shuffle(shuffled)
+        self._key = "".join(shuffled)
+
+    def cipher(self, text: str) -> str:
+        return _substitute(text, ascii_lowercase, self._key)
+
+    def decipher(self, text: str) -> str:
+        return _substitute(text, self._key, ascii_lowercase)
+
+
 _STRATEGIES: dict[str, Callable[[], _CipherStrategy]] = {
     "caesar": _CaesarStrategy,
+    "monoalphabetic": _MonoalphabeticStrategy,
 }
 
 
