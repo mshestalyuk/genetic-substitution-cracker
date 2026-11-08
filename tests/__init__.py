@@ -1,1 +1,1 @@
-"""Test package for the WIP project."""
+"""Test package for the project."""
