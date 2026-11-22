@@ -9,6 +9,7 @@ Build and cache a model::
 
     python ngram.py build --n 4 --out data/pl_quadgrams.json
 """
+from __future__ import annotations
 
 import argparse
 import json
