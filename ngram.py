@@ -1,4 +1,4 @@
-"""N-gram language model used as the GA fitness signal (TODO step 2).
+"""N-gram language model used as the GA fitness signal.
 
 The model stores log10 probabilities of every n-gram seen in the corpus.
 A candidate plaintext is scored as the sum of log-probabilities of its
@@ -9,8 +9,6 @@ Build and cache a model::
 
     python ngram.py build --n 4 --out data/pl_quadgrams.json
 """
-
-from __future__ import annotations
 
 import argparse
 import json
